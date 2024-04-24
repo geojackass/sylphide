@@ -25,7 +25,7 @@ https://kouseikyoku.mhlw.go.jp/shikoku/gyomu/gyomu/hoken_kikan/shitei/index.html
 - 九州厚生局
 https://kouseikyoku.mhlw.go.jp/kyushu/gyomu/gyomu/hoken_kikan/index_00006.html
 
-### USAGE
+### Photo
 - act-2
 ![act-2](fig/act-2.png "act-2")
 
@@ -36,7 +36,7 @@ https://kouseikyoku.mhlw.go.jp/kyushu/gyomu/gyomu/hoken_kikan/index_00006.html
 3. pythonにて空白セルを含む行を削除する
 4. Rにて薬局コード(micode)の不要な記号を削除する
 5. [giselle](https://github.com/geojackass/giselle)でジオコーディングを行う
-
+(6). [郵便番号](https://www.post.japanpost.jp/zipcode/download.html)が必要な場合，こちらを参照してください．
 License
 =======
 ### Released under the MIT license
