@@ -35,7 +35,7 @@ https://kouseikyoku.mhlw.go.jp/kyushu/gyomu/gyomu/hoken_kikan/index_00006.html
 2. Rにてpharmacies_clean.Rで一つのCSVファイル化及び必要なカラムの抽出を行う
 3. pythonにて空白セルを含む行を削除する
 4. Rにて薬局コード(micode)の不要な記号を削除する
-5. [giselle](https://github.com/geojackass/giselle)でジオコーディングを行う
+5. [giselle](https://github.com/geojackass/giselle)でジオコーディングを行う  
 (6). [郵便番号](https://www.post.japanpost.jp/zipcode/download.html)が必要な場合，こちらを参照してください．
 License
 =======
