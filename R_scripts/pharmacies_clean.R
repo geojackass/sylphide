@@ -20,17 +20,19 @@ write.csv(data.select, "dir/path/{file}.csv", row.names = F, fileEncoding = "utf
 
 ################################
 #dropnaの処理を一旦pythonで行う##
-#dropna処理後，Rにて再処理#######
+#dropna他処理後，Rにて再処理#####
 ################################
 
 getwd()
-df <-read_csv("dir/path/{file}.csv")
+df <-read_csv("dir/path/{filename}.csv")
 df
 #micodeの数字以外の処理
-micode.fix <- gsub("[[:punct:]]","",df$micode)
-df.mutate <- mutate(df, micode = micode.fix)
+#micode.fix <- gsub("[[:punct:]]","",df$micode)
+#df.mutate <- mutate(df, micode = micode.fix)
+#df.mutate
+postalfix <-str_remove(df$postal, "-|－")
+df.mutate <- mutate(df, postal=postalfix)
 df.mutate
-
 write.csv(df.mutate, "dir/path/{file}.csv", row.names = F, fileEncoding = "utf8")
 
 ##########################
