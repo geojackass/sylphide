@@ -22,9 +22,13 @@ write.csv(data.select, "dir/path/{file}.csv", row.names = F, fileEncoding = "utf
 #dropnaの処理を一旦pythonで行う##
 #dropna他処理後，Rにて再処理#####
 ################################
+################################
+#郵便番号から記号を削除する#####
+#郵便番号で薬局マスターと結合###
+################################
 
 getwd()
-df <-read_csv("dir/path/{filename}.csv")
+df <- read_csv("dir/path/{file}.csv")
 df
 #micodeの数字以外の処理
 #micode.fix <- gsub("[[:punct:]]","",df$micode)
@@ -33,7 +37,19 @@ df
 postalfix <-str_remove(df$postal, "-|－")
 df.mutate <- mutate(df, postal=postalfix)
 df.mutate
-write.csv(df.mutate, "dir/path/{file}.csv", row.names = F, fileEncoding = "utf8")
+
+pstl <- read_csv("dir/path/KEN_ALL_ROME/KEN_ALL_ROME_utf8.csv")
+pstl
+
+dat <- inner_join(df.mutate, pstl, by = "postal")
+dat
+
+adrs <- paste0(dat$prefecture, dat$address)
+#adrs
+dat.adrs <- mutate(dat, address = adrs)
+#dat.adrs$address
+write.csv(dat.adrs, "dir/path/pharmacies_postal_join.csv", row.names = F, fileEncoding = "utf8")
+
 
 ##########################
 #GISELLEでジオコーディング#
